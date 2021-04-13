@@ -4,7 +4,7 @@ import logo from "../../img/logo.svg";
 import { ContainerBar, OutlinedButton } from "../../utils/theme.js";
 
 const Header = () =>
-    <AppBar color="inherit">
+    <AppBar position="sticky" color="inherit">
         <Container component={ContainerBar}>
 
             <Box alignContent="center" display="flex">
