@@ -1,9 +1,9 @@
-import Estados from "./components/Estados";
+import Paises from "./components/Paises";
 import Header from "./components/Header";
 
 const App = () => <>
   <Header />
-  <Estados />
+  <Paises />
 </>;
 
 export default App;
