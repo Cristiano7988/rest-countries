@@ -3,6 +3,12 @@ import { Box, Container, Grid, Link } from "@material-ui/core"
 import { useState } from "react";
 import { Pagination, PaginationItem } from "@material-ui/lab";
 
+const estilo = {
+    border: "unset",
+    boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.25)",
+    borderRadius: "2px"
+}
+
 const Paises = () => {
     const [paises, setPaises] = useState();
     const [page, setPage] = useState(1);
@@ -52,19 +58,26 @@ const Paises = () => {
 
                     })}
                 </Grid>
+                    
                 <Box justifyContent="center" display="flex">
                     <Pagination
                         count={paises.pages}
                         variant="outlined"
                         onClick={handleClick}
                         shape="rounded"
-                        renderItem={(item)=> (
+                        renderItem={ item =>
                             <PaginationItem
+                                style={item.selected
+                                    ? { color: "#fff",
+                                        backgroundColor: "rgba(109, 32, 128, 1)",
+                                        ...estilo
+                                    } : {color: "#8D8D8D", ...estilo}
+                                }
                                 data-page={item.page}
                                 component={Link}
                                 {...item}
                             />
-                        )}
+                        }
                     />
                 </Box>
             </> : "" }
