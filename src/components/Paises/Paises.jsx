@@ -201,6 +201,8 @@ const Paises = () => {
                         onClick={handleClick}
                         shape="rounded"
                         page={parseInt(page)}
+                        boundaryCount={2}
+                        siblingCount={2}
                         renderItem={ item =>
                             <PaginationItem
                                 style={item.selected
