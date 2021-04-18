@@ -18,13 +18,6 @@ const filtros = [
 
 
 const Paises = () => {
-    const [paises, setPaises] = useState();
-    const [campos, setCampos] = useState({filtro: 3, especifico: 0});
-    const [propriedades, setPropriedades] = useState();
-    const [especificado, setEspecificado] = useState(false);
-    const [conteudo, setConteudo] = useState(false);
-    const {page, data, per_page, pages} = conteudo;
-    
     const carregaTodosPaises = async () => {
         const data = await fetch("https://restcountries.eu/rest/v2/all")
         .then(r=>r.json())
@@ -40,9 +33,15 @@ const Paises = () => {
         
         setPaises(data);
         setConteudo(resultado);
-        
-        return resultado;
     }
+    
+    const [paises, setPaises] = useState(carregaTodosPaises);
+    const [campos, setCampos] = useState({filtro: 3, especifico: 0});
+    const [propriedades, setPropriedades] = useState();
+    const [especificado, setEspecificado] = useState(false);
+    const [conteudo, setConteudo] = useState(false);
+    const {page, data, per_page, pages} = conteudo;
+    
     
     const fetchData = async () => {
         const {propriedade, recurso} = propriedades;
@@ -130,8 +129,6 @@ const Paises = () => {
         else setCampos({...campos, [name]: value});
         funcs[name](value);
     }
-
-    if(!paises) carregaTodosPaises();
 
     return (
         <Container>
