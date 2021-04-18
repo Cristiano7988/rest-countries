@@ -200,6 +200,7 @@ const Paises = () => {
                         variant="outlined"
                         onClick={handleClick}
                         shape="rounded"
+                        page={parseInt(page)}
                         renderItem={ item =>
                             <PaginationItem
                                 style={item.selected
